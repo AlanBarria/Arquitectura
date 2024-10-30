@@ -1,0 +1,24 @@
+.cardmuro-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 20px;
+}
+
+.cardmuro {
+    background-color: #e0f7fa; /* Cambia el color de fondo */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 10px;
+    width: 300px; /* Ajusta el ancho según lo necesites */
+}
+
+.cardmuro-title {
+    font-size: 1.5em;
+    margin: 0 0 10px;
+}
+
+.cardmuro-text {
+    font-size: 1em;
+}
