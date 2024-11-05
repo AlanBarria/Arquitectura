@@ -23,7 +23,7 @@ const CompMuro = () => {
         if (userLocation) {
             const destinations = [
                 [-72.93619408837313, -41.47232147295274], // Primer destino
-                [-41.47589555723407, -72.97204470439058], // Segundo destino
+                [-41.44695080993002, -72.95668101111457], // Segundo destino
                 [-72.9467205859915, -41.45772259455789],  // Tercer destino
             ];
 
@@ -101,7 +101,7 @@ const CompMuro = () => {
 
                 <div className="cardmuro">
                     <h5 className="cardmuro-title">Luis Gonzales</h5>
-                    <p className="cardmuro-text">A la 1 voy para mirasol </p>
+                    <p className="cardmuro-text">A la 1 voy al Hospital </p>
                     <div ref={el => mapDivRefs.current[1] = el} style={{ height: '200px', width: '100%' }} />
                 </div>
 
