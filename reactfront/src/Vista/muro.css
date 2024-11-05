@@ -1,24 +1,66 @@
-.cardmuro-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    margin: 20px;
-}
-
-.cardmuro {
-    background-color: #e0f7fa; /* Cambia el color de fondo */
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+/* Contenedor principal de la página */
+.muro-page {
+    position: relative;
     padding: 20px;
-    margin: 10px;
-    width: 300px; /* Ajusta el ancho según lo necesites */
+    background-color: #1b1b1b; /* Fondo oscuro similar al login */
+    color: #ffffff; /* Color del texto blanco */
+    min-height: 100vh; /* Ocupa toda la altura de la ventana */
 }
 
+/* Título de las publicaciones */
+.muro-title {
+    font-size: 2rem;
+    color: #007bff; /* Color azul */
+    margin-bottom: 20px;
+}
+
+/* Contenedor de la tarjeta de publicaciones */
+.muro-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra horizontalmente */
+}
+
+/* Estilo de la tarjeta */
+.cardmuro {
+    background-color: #1e1e1e; /* Color de fondo para las tarjetas */
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    margin: 10px 0; /* Margen superior e inferior */
+    width: 100%; /* Ocupa todo el ancho disponible */
+    max-width: 800px; /* Ancho máximo de la tarjeta */
+}
+
+/* Título de la tarjeta */
 .cardmuro-title {
     font-size: 1.5em;
+    color: #007bff; /* Color azul para el título de la tarjeta */
     margin: 0 0 10px;
 }
 
+/* Texto de la tarjeta */
 .cardmuro-text {
     font-size: 1em;
+    color: #cccccc; /* Color de texto gris claro */
+}
+
+/* Botón flotante */
+.floating-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #007bff; /* Color azul */
+    color: #ffffff; /* Texto blanco */
+    border: none;
+    border-radius: 15%;
+    padding: 15px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    font-size: 24px;
+    transition: background-color 0.3s;
+}
+
+/* Cambiar color al pasar el ratón */
+.floating-button:hover {
+    background-color: #0056b3; /* Color más oscuro al pasar el ratón */
 }
