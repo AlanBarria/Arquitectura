@@ -33,7 +33,7 @@ const CompMuro = () => {
                     container: mapDivRefs.current[index],
                     style: 'mapbox://styles/mapbox/streets-v12',
                     center: userLocation,
-                    zoom: 14,
+                    zoom: 12,
                 });
 
                 // Crear marcador de usuario
