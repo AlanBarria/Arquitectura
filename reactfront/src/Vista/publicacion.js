@@ -4,31 +4,28 @@ import mapboxgl from 'mapbox-gl';
 import { useNavigate } from 'react-router-dom';
 import './publicacion.css';
 
-// Configurar el token de Mapbox
 mapboxgl.accessToken = 'pk.eyJ1Ijoia2FsbHlmdXUiLCJhIjoiY20ybGRua3h1MGF6MTJqb285MThrcnhyMyJ9.u_9eCXSGqIvNWBXEzxmdbg';
 
 const CompCrearPublicacion = () => {
     const [descripcion, setDescripcion] = useState('');
-    const [ubicacion, setUbicacion] = useState(''); // Input de ubicación
+    const [ubicacion, setUbicacion] = useState('');
     const [latitud, setLatitud] = useState(null);
     const [longitud, setLongitud] = useState(null);
     const [error, setError] = useState('');
-    const mapContainerRef = useRef(null); // Referencia al contenedor del mapa
-    const mapRef = useRef(null); // Referencia al mapa de Mapbox
-    const markerRef = useRef(null); // Referencia al marcador actual
+    const mapContainerRef = useRef(null);
+    const mapRef = useRef(null);
+    const markerRef = useRef(null);
     const navigate = useNavigate();
 
-    // Inicializar el mapa
     useEffect(() => {
         mapRef.current = new mapboxgl.Map({
             container: mapContainerRef.current,
             style: 'mapbox://styles/mapbox/streets-v11',
-            center: [-70.6506, -33.4378], // Coordenadas por defecto (Santiago, Chile)
+            center: [-41.46991288375822, -72.92567885874817],
             zoom: 12,
         });
     }, []);
 
-    // Buscar la ubicación usando la API de Mapbox Geocoding
     const buscarUbicacion = async () => {
         try {
             const response = await axios.get(
@@ -40,23 +37,19 @@ const CompCrearPublicacion = () => {
                 setLatitud(lat);
                 setLongitud(lng);
 
-                // Eliminar el marcador anterior, si existe
                 if (markerRef.current) {
                     markerRef.current.remove();
                 }
 
-                // Actualizar el mapa con la nueva ubicación
                 mapRef.current.flyTo({
                     center: [lng, lat],
                     zoom: 14,
                 });
 
-                // Agregar un nuevo marcador
                 const newMarker = new mapboxgl.Marker()
                     .setLngLat([lng, lat])
                     .addTo(mapRef.current);
 
-                // Guardar el marcador actual
                 markerRef.current = newMarker;
             } else {
                 setError('No se encontró la ubicación. Inténtalo de nuevo.');
@@ -67,7 +60,6 @@ const CompCrearPublicacion = () => {
         }
     };
 
-    // Manejar el envío del formulario
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (!latitud || !longitud) {
@@ -98,7 +90,6 @@ const CompCrearPublicacion = () => {
                 <h3 className="publicacion-title">Crear Publicación</h3>
                 {error && <div style={{ color: 'red' }}>{error}</div>}
                 <form onSubmit={handleSubmit} className="publicacion-form">
-                    {/* Input de descripción */}
                     <div className='input-item'>
                         <input
                             placeholder='Descripción'
@@ -108,8 +99,6 @@ const CompCrearPublicacion = () => {
                             required
                         />
                     </div>
-
-                    {/* Input para buscar la ubicación */}
                     <div className='input-item'>
                         <input
                             placeholder='Buscar ubicación'
@@ -121,11 +110,7 @@ const CompCrearPublicacion = () => {
                             Buscar
                         </button>
                     </div>
-
-                    {/* Contenedor del mapa */}
                     <div className="map-container" ref={mapContainerRef}></div>
-
-                    {/* Botón de guardar */}
                     <button className='guardar-button' type="submit">Guardar</button>
                 </form>
             </div>

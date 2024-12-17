@@ -34,7 +34,6 @@ const Registro = () => {
                 correo,
                 contrasena,
                 telefono,
-                // rol,
             });
 
             if (response.data && response.data.success) {
@@ -92,13 +91,6 @@ const Registro = () => {
                             required
                         />
                     </div>
-                    {/* <div className="input-item">
-                        <label>Rol:</label>
-                        <select value={rol} onChange={(e) => setRol(e.target.value)}>
-                            <option value="pasajero">Pasajero</option>
-                            <option value="conductor">Conductor</option>
-                        </select>
-                    </div> */}
                     <button className="register-button" type="submit">Registrarse</button>
                 </form>
             </div>

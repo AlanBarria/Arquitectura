@@ -51,7 +51,6 @@ export const createPublicacion = async (req, res) => {
     }
 };
 
-
 // Actualiza una publicación
 export const updatePublicacion = async (req, res) => {
     try {

@@ -11,7 +11,6 @@ const UsuarioModel = db.define('usuarios', {
     correo: { type: DataTypes.STRING, unique: true },
     contrasena: { type: DataTypes.STRING },
     telefono: { type: DataTypes.STRING },
-    rol: { type: DataTypes.ENUM('conductor', 'pasajero') },
 },{
     timestamps: false // Desactiva las columnas createdAt y updatedAt
 });

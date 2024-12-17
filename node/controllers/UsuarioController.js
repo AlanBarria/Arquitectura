@@ -78,7 +78,7 @@ export const deleteUsuario = async (req, res) => {
 }
 
 export const registrarUsuario = async (req, res) => {
-    const { nombre, correo, contrasena, telefono, rol } = req.body;
+    const { nombre, correo, contrasena, telefono } = req.body;
 
     // Validación del dominio del correo en el servidor
     if (!correo.endsWith('@duocuc.cl')) {
@@ -101,8 +101,7 @@ export const registrarUsuario = async (req, res) => {
             nombre,
             correo,
             contrasena: hashedPassword,
-            telefono,
-            rol
+            telefono
         });
 
         res.status(201).json({ success: true, message: '¡Registro exitoso!' });

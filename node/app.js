@@ -1,19 +1,19 @@
-import express from "express";
+import express from 'express';
 import cors from 'cors';
-import db from "./database/db.js";
-import usuarioRoutes from "./routes/routes.js";  // Rutas de usuario
-import publicacionRoutes from "./routes/routes.js";
+import db from './database/db.js';
+import usuarioRoutes from './routes/usuarioRoutes.js';
+import publicacionRoutes from './routes/publicacionRoutes.js';
 
 const app = express();
 
 // Middlewares
-app.use(cors());  // Habilitar CORS
-app.use(express.json());  // Procesar datos JSON (sustituye a bodyParser.json())
-app.use(express.urlencoded({ extended: true }));  // Procesar datos de formularios (sustituye a bodyParser.urlencoded())
+app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 // Rutas
-app.use('/publicaciones', publicacionRoutes);  // Usa las rutas de publicaciones
-app.use('/usuarios', usuarioRoutes);  // Usa las rutas de usuarios
+app.use('/usuarios', usuarioRoutes);
+app.use('/publicaciones', publicacionRoutes);
 
 // Conexión a la base de datos
 try {
