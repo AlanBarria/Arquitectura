@@ -22,20 +22,20 @@ const Registro = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError('');
-
+    
         if (!validarCorreo(correo)) {
             setError('El correo debe terminar con @duocuc.cl');
             return;
         }
-
+    
         try {
             const response = await axios.post('http://localhost:8000/usuarios/registro', {
                 nombre,
                 correo,
                 contrasena,
-                telefono,
+                telefono
             });
-
+    
             if (response.data && response.data.success) {
                 alert('Registro exitoso');
                 navigate('/'); 
@@ -47,6 +47,7 @@ const Registro = () => {
             setError('Error al registrar. Por favor, intente nuevamente.');
         }
     };
+    
 
     return (
         <div className="register-content">

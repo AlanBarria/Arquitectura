@@ -96,7 +96,7 @@ export const registrarUsuario = async (req, res) => {
         const saltRounds = 10;
         const hashedPassword = await bcrypt.hash(contrasena, saltRounds);
 
-        // Crear el nuevo usuario
+        // Crear el nuevo usuario sin el rol
         await UsuarioModel.create({
             nombre,
             correo,
@@ -110,6 +110,7 @@ export const registrarUsuario = async (req, res) => {
         res.status(500).json({ success: false, message: 'Error en el servidor' });
     }
 };
+
 
 export const loginUsuario = async (req, res) => {
     const { correo, contrasena } = req.body;

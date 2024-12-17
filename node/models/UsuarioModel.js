@@ -4,8 +4,8 @@ import db from "../database/db.js";
 const UsuarioModel = db.define('usuarios', {
     id_usuario: {
         type: DataTypes.INTEGER,
-        primaryKey: true, // Establece 'id_usuario' como la clave primaria
-        autoIncrement: true // Autoincremental
+        primaryKey: true,
+        autoIncrement: true
     },
     nombre: { type: DataTypes.STRING },
     correo: { type: DataTypes.STRING, unique: true },
@@ -13,6 +13,8 @@ const UsuarioModel = db.define('usuarios', {
     telefono: { type: DataTypes.STRING },
 },{
     timestamps: false // Desactiva las columnas createdAt y updatedAt
+}, {
+    timestamps: false
 });
 
 export default UsuarioModel;

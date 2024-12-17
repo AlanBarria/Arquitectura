@@ -21,7 +21,7 @@ const CompCrearPublicacion = () => {
         mapRef.current = new mapboxgl.Map({
             container: mapContainerRef.current,
             style: 'mapbox://styles/mapbox/streets-v11',
-            center: [-41.46991288375822, -72.92567885874817],
+            center: [-72.9350, -41.4702], // Coordenadas por defecto (Puerto Montt, Chile)
             zoom: 12,
         });
     }, []);
