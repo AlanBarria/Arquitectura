@@ -2,6 +2,7 @@ import express from "express";
 import cors from 'cors';
 import db from "./database/db.js";
 import usuarioRoutes from "./routes/routes.js";  // Rutas de usuario
+import publicacionRoutes from "./routes/routes.js";
 
 const app = express();
 
@@ -11,6 +12,7 @@ app.use(express.json());  // Procesar datos JSON (sustituye a bodyParser.json())
 app.use(express.urlencoded({ extended: true }));  // Procesar datos de formularios (sustituye a bodyParser.urlencoded())
 
 // Rutas
+app.use('/publicaciones', publicacionRoutes);  // Usa las rutas de publicaciones
 app.use('/usuarios', usuarioRoutes);  // Usa las rutas de usuarios
 
 // Conexión a la base de datos

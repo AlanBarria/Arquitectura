@@ -5,7 +5,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 100%;
 }
 
 /* Contenedor de la tarjeta de creación de publicación */
@@ -80,4 +80,32 @@
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+/* Contenedor del mapa */
+.map-container {
+    height: 250px; /* Altura del mapa */
+    width: 100%; /* Ocupa todo el ancho del contenedor */
+    margin-bottom: 10px; /* Espacio entre el mapa y el botón */
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #575757; /* Fondo de carga */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Botón de búsqueda */
+.buscar-button {
+    margin-top: 10px;
+    padding: 8px;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.buscar-button:hover {
+    background-color: #45a049;
 }

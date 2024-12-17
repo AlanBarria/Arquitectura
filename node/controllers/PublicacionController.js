@@ -27,15 +27,30 @@ export const getPublicacion = async (req, res) => {
 // Crea una nueva publicación
 export const createPublicacion = async (req, res) => {
     try {
-        const publicacion = await PublicacionModel.create(req.body);
+        const { descripcion, latitud, longitud } = req.body;
+
+        // Validación de los parámetros requeridos
+        if (!descripcion || !latitud || !longitud) {
+            return res.status(400).json({ message: "Faltan parámetros: descripcion, latitud o longitud" });
+        }
+
+        // Crear la publicación
+        const publicacion = await PublicacionModel.create({
+            descripcion,
+            latitud,
+            longitud,
+        });
+
         res.status(201).json({
             message: "¡Publicación creada correctamente!",
             publicacion,
         });
     } catch (error) {
+        console.error("Error al crear la publicación:", error);
         res.status(400).json({ message: error.message });
     }
 };
+
 
 // Actualiza una publicación
 export const updatePublicacion = async (req, res) => {

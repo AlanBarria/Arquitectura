@@ -7,21 +7,17 @@ const PublicacionModel = db.define('publicaciones', {
         primaryKey: true, // Establece 'id_publicacion' como la clave primaria
         autoIncrement: true // Autoincremental
     },
-    destino: { 
-        type: DataTypes.STRING,
+    latitud: {
+        type: DataTypes.DECIMAL(9, 6),
         allowNull: false // Asegura que este campo no sea nulo
     },
-    salida: { 
-        type: DataTypes.STRING,
+    longitud: {
+        type: DataTypes.DECIMAL(9, 6),
         allowNull: false // Asegura que este campo no sea nulo
     },
-    id_usuario: { 
-        type: DataTypes.INTEGER,
-        allowNull: false, // Asegura que este campo no sea nulo
-        references: {
-            model: 'usuarios', // Nombre de la tabla referenciada
-            key: 'id_usuario' // Clave primaria en la tabla referenciada
-        }
+    descripcion: {
+        type: DataTypes.STRING,
+        allowNull: false // Asegura que este campo no sea nulo
     }
 }, {
     timestamps: false // Desactiva las columnas createdAt y updatedAt
