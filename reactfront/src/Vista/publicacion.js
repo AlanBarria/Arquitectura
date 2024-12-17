@@ -23,7 +23,7 @@ const CompCrearPublicacion = () => {
         mapRef.current = new mapboxgl.Map({
             container: mapContainerRef.current,
             style: 'mapbox://styles/mapbox/streets-v11',
-            center: [-70.6506, -33.4378], // Coordenadas por defecto (Santiago, Chile)
+            center: [-72.9350, -41.4702], // Coordenadas por defecto (Puerto Montt, Chile)
             zoom: 12,
         });
     }, []);

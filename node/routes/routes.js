@@ -3,8 +3,10 @@ import { getAllUsuarios, getUsuario, createUsuario, updateUsuario, deleteUsuario
 import { getAllPublicaciones, getPublicacion, createPublicacion, updatePublicacion, deletePublicacion } from '../controllers/PublicacionController.js';
 
 const router = express.Router();
+
 router.post('/registro', registrarUsuario); 
 router.post('/login', loginUsuario);
+
 router.get("/", getAllUsuarios);
 router.get("/:id", getUsuario);
 router.post('/', createUsuario);
